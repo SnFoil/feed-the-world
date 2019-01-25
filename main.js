@@ -96,7 +96,7 @@ function oreSmelt() {
 //clock
 var mainGameLoop = window.setInterval(function() {
   mineOre()
-    if(gameData.ingot >= 50) { // >= means greater than or equal to. == means equal to.
+    if(gameData.ore >= 50) { // >= means greater than or equal to. == means equal to.
       document.getElementById("oreSmelt").style.display = "inline-block" //https://www.w3schools.com/cssref/pr_class_display.asp for more types of display, up to you
     }
 }, gameData.autoMine)
