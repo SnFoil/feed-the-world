@@ -11,6 +11,8 @@ var gameData = {
   autoMine: 1000 //autoMine is the time, in ms, that the player recieves gold.
 }
 
+document.getElementById("oreSmelt").style.display = "none"
+
 //ore miner
 function mineOre() {
   gameData.ore += gameData.orePerClick
