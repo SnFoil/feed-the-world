@@ -1,3 +1,5 @@
+
+//all variables
 var gameData = {
   ore: 0,
   orePerClick: 1,
@@ -9,11 +11,13 @@ var gameData = {
 
 }
 
+//ore miner
 function mineOre() {
   gameData.ore += gameData.orePerClick
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
 }
 
+//click upgrade
 function buyOrePerClick() {
   if (gameData.ore >= gameData.orePerClickCost) {
     gameData.ore -= gameData.orePerClickCost
@@ -24,6 +28,7 @@ function buyOrePerClick() {
   }
 }
 
+//drill purchase
 function buyDrill() {
   if (gameData.ore >= gameData.drillCost) {
     gameData.ore -= gameData.drillCost
@@ -34,6 +39,7 @@ function buyDrill() {
   }
 }
 
+//furnace purchase
 function buyFurnace() {
   if(gameData.ore >= gameData.furnaceCost) {
     gameData.ore -= gameData.furnaceCost
@@ -44,6 +50,7 @@ function buyFurnace() {
   }
 }
 
+//smelt ores into ingots
 function oreSmelt() {
   if(gameData.ore >= 10) {
     gameData.ore -= 10
@@ -53,15 +60,18 @@ function oreSmelt() {
   }
 }
 
+//clock
 var mainGameLoop = window.setInterval(function() {
   mineOre()
   oreSmelt()
 }, 100)
 
+//autosave
 var saveGameLoop = window.setInterval(function() {
   localStorage.setItem('oreMinerSave', JSON.stringify(gameData))
 }, 10000)
 
+//loads save
 var savegame = JSON.parse(localStorage.getItem("oreMinerSave"))
 if (savegame !== null) {
   gameData = savegame
