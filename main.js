@@ -1,7 +1,9 @@
 //game variables
 var gameData = {
   ore: 0, //how much ore the player has
+  orePerSecond: 1, //how much ingot recieved per second
   ingot: 0, //how much ingot the player has
+  ingotPerSecond: 0, //how much ingot recieved per second
   orePerClick: 1, //ore recieved per button press
   orePerClickCost: 10, //cost to upgrade orePerClick
   drill: 0, //how many drills the player has
@@ -10,7 +12,11 @@ var gameData = {
   furnaceCost: 1000, //how much it costs to purchase another furnace
   autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore.
   furnaceEfficiency: 50, //how much ore a smelt uses up
-  furnaceReward: 1 //how much ore a player receives per smelt
+  furnaceReward: 1, //how much ore a player receives per smelt
+  //upgradeData
+  upgradeCostMultiplier: 1.15, //determines the cost of the next upgrade
+  drillEfficiency: 1, //how much a drill adds to the orePerSecond
+  furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
 }
 
 //loads save
@@ -39,7 +45,11 @@ function developerReset() { //developer reset button
     furnaceCost: 1000, //how much it costs to purchase another furnace
     autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore
     furnaceEfficiency: 50, //how much ore a smelt uses up
-    furnaceReward: 1 //how much ore a player receives per smelt
+    furnaceReward: 1, //how much ore a player receives per smelt
+    //upgradeData
+    upgradeCostMultiplier: 1.15, //determines the cost of the next upgrade
+    drillEfficiency: 1, //how much a drill adds to the orePerSecond
+    furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
   }
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
   document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
@@ -47,18 +57,12 @@ function developerReset() { //developer reset button
   document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
 }
 
-//ore miner
-function mineOre() {
-  gameData.ore += gameData.orePerClick
-  document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-}
-
 //click upgrade
 function buyOrePerClick() {
   if (gameData.ore >= gameData.orePerClickCost) {
     gameData.ore -= gameData.orePerClickCost
     gameData.orePerClick += 1
-    gameData.orePerClickCost *= 2
+    gameData.orePerClickCost *= gameData.upgradeCostMultiplier
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
   }
@@ -69,7 +73,8 @@ function buyDrill() {
   if (gameData.ore >= gameData.drillCost) {
     gameData.ore -= gameData.drillCost
     gameData.drill += 1
-    gameData.drillCost *= 2
+    gameData.orePerSecond += gameData.drillEfficiency
+    gameData.drillCost *= gameData.upgradeCostMultiplier
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
   }
@@ -80,7 +85,8 @@ function buyFurnace() {
   if(gameData.ore >= gameData.furnaceCost) {
     gameData.ore -= gameData.furnaceCost
     gameData.furnace += 1
-    gameData.furnaceCost *=2
+    gameData.orePerSecond += gameData.furnaceEfficiency
+    gameData.furnaceCost *= gameData.upgradeCost
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
   }
@@ -99,8 +105,10 @@ function oreSmelt() {
 
 //clock
 var mainGameLoop = window.setInterval(function() {
-  mineOre()
-    if(gameData.ore >= 50) {
+  gameData.ore += gameData.orePerSecond //add orePerSecond to ore
+  document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
+  
+  if(gameData.ore >= 50) { //enable ore smelter
       document.getElementById("oreSmelt").style.display = "inline-block" //https://www.w3schools.com/cssref/pr_class_display.asp for more types of display, up to you
     }
 }, gameData.autoMine)
