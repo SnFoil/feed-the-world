@@ -23,8 +23,7 @@ document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Current
 document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
 document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
 document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
-
-  document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into ingots button to be invisible before the player has 50 ore
+document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into ingots button to be invisible before the player has 50 ore
 
 function developerReset() { //developer reset button
   gameData = {
@@ -96,7 +95,7 @@ function oreSmelt() {
 //clock
 var mainGameLoop = window.setInterval(function() {
   mineOre()
-    if(gameData.ore >= 50) { // >= means greater than or equal to. == means equal to.
+    if(gameData.ore >= 50) {
       document.getElementById("oreSmelt").style.display = "inline-block" //https://www.w3schools.com/cssref/pr_class_display.asp for more types of display, up to you
     }
 }, gameData.autoMine)
