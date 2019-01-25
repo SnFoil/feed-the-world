@@ -68,7 +68,7 @@ function buyFurnace() {
     gameData.furnace += 1
     gameData.furnaceCost *=2
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-    document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.drillCost + " Ore"
+    document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
   }
 }
 
