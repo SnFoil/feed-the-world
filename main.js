@@ -26,7 +26,7 @@ var gameData = {
   document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into ingots button to be invisible before the player has 50 ore
 
 function developerReset() { //developer reset button
-  gameData = default
+  gameData = defaultData
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
   document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
   document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
