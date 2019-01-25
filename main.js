@@ -1,5 +1,6 @@
 var defaultData = {
   ore: 0, //how much ore the player has
+  ingot: 0, //how much ingot the player has
   orePerClick: 1, //ore recieved per button press
   orePerClickCost: 10, //cost to upgrade orePerClick
   drill: 0, //how many drills the player has
@@ -12,6 +13,7 @@ var defaultData = {
 //game variables
 var gameData = {
   ore: 0, //how much ore the player has
+  ingot: 0, //how much ingot the player has
   orePerClick: 1, //ore recieved per button press
   orePerClickCost: 10, //cost to upgrade orePerClick
   drill: 0, //how many drills the player has
@@ -26,7 +28,7 @@ var gameData = {
 function developerReset() { //developer reset button
   gameData = default
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-  document.getElementById("goldIngots").innerHTML = gameData.gold + " Gold Ingots"
+  document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
   document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
   document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
 }
