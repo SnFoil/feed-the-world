@@ -13,6 +13,17 @@ var gameData = {
 
 document.getElementById("oreSmelt").style.display = "none"
 
+function developerReset() {
+  gameData.ore == 0
+  gameData.drill == 0
+  gameData.furnace == 0
+  gameData.orePerClick == 1
+  document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
+  document.getElementById("goldIngots").innerHTML = gameData.gold + " Gold Ingots"
+  document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
+  document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
+}
+
 //ore miner
 function mineOre() {
   gameData.ore += gameData.orePerClick
