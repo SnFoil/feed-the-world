@@ -1,14 +1,14 @@
 
 //all variables
 var gameData = {
-  ore: 0,
-  orePerClick: 1,
-  orePerClickCost: 10,
-  drill: 0,
-  drillCost: 100,
-  furnace: 0,
-  furnaceCost: 1000
-
+  ore: 0, //how much ore the player has
+  orePerClick: 1, //ore recieved per button press
+  orePerClickCost: 10, //cost to upgrade orePerClick
+  drill: 0, //how many drills the player has
+  drillCost: 100, //how much it costs to purchase another drill
+  furnace: 0, //how many furnaces the player has
+  furnaceCost: 1000, //how much it costs to purchase another furnace
+  autoMine: 1000 //autoMine is the time, in ms, that the player recieves gold.
 }
 
 //ore miner
@@ -64,7 +64,7 @@ function oreSmelt() {
 var mainGameLoop = window.setInterval(function() {
   mineOre()
   //oreSmelt()
-}, 100)
+}, gameData.autoMine)
 
 //autosave
 var saveGameLoop = window.setInterval(function() {
