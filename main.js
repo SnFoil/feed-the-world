@@ -56,7 +56,7 @@ function oreSmelt() {
 var mainGameLoop = window.setInterval(function() {
   mineOre()
   oreSmelt()
-}, 864000000)
+}, 100)
 
 var saveGameLoop = window.setInterval(function() {
   localStorage.setItem('oreMinerSave', JSON.stringify(gameData))
