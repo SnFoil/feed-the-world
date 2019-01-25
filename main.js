@@ -11,13 +11,13 @@ var gameData = {
   autoMine: 1000 //autoMine is the time, in ms, that the player recieves gold.
 }
 
-document.getElementById("oreSmelt").style.display = "none"
+  document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into ingots button to be invisible before the player has 50 ore
 
-function developerReset() {
-  gameData.ore == 0
-  gameData.drill == 0
-  gameData.furnace == 0
-  gameData.orePerClick == 1
+function developerReset() { //developer reset button
+  gameData.ore = 0
+  gameData.drill = 0
+  gameData.furnace = 0
+  gameData.orePerClick = 1
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
   document.getElementById("goldIngots").innerHTML = gameData.gold + " Gold Ingots"
   document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
