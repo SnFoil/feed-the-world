@@ -1,7 +1,7 @@
 //game variables
 var gameData = {
   ore: 0, //how much ore the player has
-  orePerSecond: 1, //how much ingot recieved per second
+  orePerSecond: 1, //how much ore recieved per second
   ingot: 0, //how much ingot the player has
   ingotPerSecond: 0, //how much ingot recieved per second
   orePerClick: 1, //ore recieved per button press
@@ -36,6 +36,7 @@ document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into
 function developerReset() { //developer reset button
   gameData = {
     ore: 0, //how much ore the player has
+    orePerSecond: 1, //how much ore recieved per second
     ingot: 0, //how much ingot the player has
     orePerClick: 1, //ore recieved per button press
     orePerClickCost: 10, //cost to upgrade orePerClick
@@ -107,7 +108,6 @@ function oreSmelt() {
 var mainGameLoop = window.setInterval(function() {
   gameData.ore += gameData.orePerSecond //add orePerSecond to ore
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-  
   if(gameData.ore >= 50) { //enable ore smelter
       document.getElementById("oreSmelt").style.display = "inline-block" //https://www.w3schools.com/cssref/pr_class_display.asp for more types of display, up to you
     }
