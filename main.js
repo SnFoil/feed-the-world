@@ -1,7 +1,7 @@
 var gameData = {
-	ore: 0,
-	orePerClick: 1,
-	orePerClickCost: 10,
+  ore: 0,
+  orePerClick: 1,
+  orePerClickCost: 10,
   drill: 0,
   drillCost: 100,
   furnace: 0,
@@ -25,7 +25,7 @@ function buyOrePerClick() {
 }
 
 function buyDrill() {
-	if (gameData.ore >= gameData.drillCost) {
+  if (gameData.ore >= gameData.drillCost) {
     gameData.ore -= gameData.drillCost
     gameData.drill += 1
     gameData.drillCost *= 2
@@ -34,8 +34,28 @@ function buyDrill() {
   }
 }
 
+function buyFurnace() {
+  if(gameData.ore >= gameData.furnaceCost) {
+    gameData.ore -= gameData.furnaceCost
+    gameData.furnace += 1
+    gameData.furnaceCost *=2
+    document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
+    document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.drillCost + " Ore"
+  }
+}
+
+function oreSmelt() {
+  if(gameData.ore >= 10) {
+    gameData.ore -= 10
+    gameData.gold += 10
+    document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
+    document.getElementById("goldIngots").innerHTML = gameData.gold + " Gold Ingots"
+  }
+}
+
 var mainGameLoop = window.setInterval(function() {
   mineOre()
+  oreSmelt()
 }, 864000000)
 
 var saveGameLoop = window.setInterval(function() {
