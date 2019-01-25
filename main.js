@@ -88,9 +88,9 @@ function buyFurnace() {
 
 //smelt ores into ingots
 function oreSmelt() {
-  if(gameData.ore >= 50) {
-    gameData.ore -= 50
-    gameData.ingot += 1
+  if(gameData.ore >= gameData.furnaceEfficiency) {
+    gameData.ore -= gameData.furnaceEfficiency
+    gameData.ingot += gameData.furnaceReward
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
   }
