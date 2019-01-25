@@ -1,0 +1,15 @@
+Functions: 
+
+mineOre() | buyOrePerClick()
+buyDrill() |
+
+Variables:
+
+ore | orePerClick | orePerClickCost
+drill | drillCost |
+furnace | furnaceCost |
+
+HTML ids:
+
+oreMined | perClickUpgrade
+drillUpgrade
