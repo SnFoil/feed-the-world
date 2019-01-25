@@ -93,6 +93,7 @@ function oreSmelt() {
     gameData.ingot += gameData.furnaceReward
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
+    document.getElementById("oreSmelt").innerHTML = "Smelt" + gameData.furnaceEfficiency + " Ore into" + gameData.furnaceReward + " Gold Ingot"
   }
 }
 
