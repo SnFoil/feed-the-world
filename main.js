@@ -8,7 +8,9 @@ var gameData = {
   drillCost: 100, //how much it costs to purchase another drill
   furnace: 0, //how many furnaces the player has
   furnaceCost: 1000, //how much it costs to purchase another furnace
-  autoMine: 1000 //autoMine is the time, in ms, that the player recieves ore.
+  autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore.
+  furnaceEfficiency: 50, //how much ore a smelt uses up
+  furnaceReward: 1 //how much ore a player receives per smelt
 }
 
 //loads save
@@ -35,7 +37,9 @@ function developerReset() { //developer reset button
     drillCost: 100, //how much it costs to purchase another drill
     furnace: 0, //how many furnaces the player has
     furnaceCost: 1000, //how much it costs to purchase another furnace
-    autoMine: 1000 //autoMine is the time, in ms, that the player recieves ore.
+    autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore
+    furnaceEfficiency: 50, //how much ore a smelt uses up
+    furnaceReward: 1 //how much ore a player receives per smelt
   }
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
   document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
@@ -84,9 +88,9 @@ function buyFurnace() {
 
 //smelt ores into ingots
 function oreSmelt() {
-  if(gameData.ore >= 10) {
-    gameData.ore -= 10
-    gameData.ingot += 10
+  if(gameData.ore >= 50) {
+    gameData.ore -= 50
+    gameData.ingot += 1
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
   }
