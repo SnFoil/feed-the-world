@@ -2,6 +2,15 @@
 
 This is a game where you mine some ore. Then you do stuff with it.
 
+# how to unlock new buttons / features
+
+to unlock a feature, upgrade, or button, certain requirements must be met. below are unlockables and their requirements
+drill - must have at least 100 ore
+drill upgrades - must have at least 3 drills
+furnaces - must have at least 500 ore
+furnace upgrades - must have at least 3 furnaces
+
+
 # future updates / to do list
 
   - upgrades
