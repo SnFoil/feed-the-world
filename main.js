@@ -7,16 +7,16 @@ var gameData = {
   orePerClick: 1, //ore recieved per button press
   orePerClickCost: 10, //cost to upgrade orePerClick
   drill: 0, //how many drills the player has
+  drillEfficiency: 1, //how much a drill adds to the orePerSecond
   drillCost: 100, //how much it costs to purchase another drill
   furnace: 0, //how many furnaces the player has
+  furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
   furnaceCost: 1000, //how much it costs to purchase another furnace
   autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore.
   furnaceEfficiency: 50, //how much ore a smelt uses up
   furnaceReward: 1, //how much ore a player receives per smelt
   //upgradeData
   upgradeCostMultiplier: 1.15, //determines the cost of the next upgrade
-  drillEfficiency: 1, //how much a drill adds to the orePerSecond
-  furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
 }
 
 //loads save
@@ -38,19 +38,20 @@ function developerReset() { //developer reset button
     ore: 0, //how much ore the player has
     orePerSecond: 1, //how much ore recieved per second
     ingot: 0, //how much ingot the player has
+    ingotPerSecond: 0, //how much ingot recieved per second
     orePerClick: 1, //ore recieved per button press
     orePerClickCost: 10, //cost to upgrade orePerClick
     drill: 0, //how many drills the player has
+    drillEfficiency: 1, //how much a drill adds to the orePerSecond
     drillCost: 100, //how much it costs to purchase another drill
     furnace: 0, //how many furnaces the player has
+    furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
     furnaceCost: 1000, //how much it costs to purchase another furnace
-    autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore
+    autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore.
     furnaceEfficiency: 50, //how much ore a smelt uses up
     furnaceReward: 1, //how much ore a player receives per smelt
     //upgradeData
     upgradeCostMultiplier: 1.15, //determines the cost of the next upgrade
-    drillEfficiency: 1, //how much a drill adds to the orePerSecond
-    furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
   }
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
   document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
