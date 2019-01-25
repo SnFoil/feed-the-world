@@ -16,7 +16,7 @@ document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
 document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
 document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
 document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
-document.getElementById("ingot").innerHTML = gameData.ingot + " Gold Ingots"
+document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
 
   document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into ingots button to be invisible before the player has 50 ore
 
@@ -33,7 +33,7 @@ function developerReset() { //developer reset button
     autoMine: 1000 //autoMine is the time, in ms, that the player recieves ore.
   }
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-  document.getElementById("ingot").innerHTML = gameData.ingot + " Gold Ingots"
+  document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
   document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
   document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
 }
@@ -83,7 +83,7 @@ function oreSmelt() {
     gameData.ore -= 10
     gameData.ingot += 10
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-    document.getElementById("ingot").innerHTML = gameData.ingot + " Gold Ingots"
+    document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
   }
 }
 
