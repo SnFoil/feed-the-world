@@ -63,7 +63,7 @@ function oreSmelt() {
 //clock
 var mainGameLoop = window.setInterval(function() {
   mineOre()
-  oreSmelt()
+  //oreSmelt()
 }, 100)
 
 //autosave
