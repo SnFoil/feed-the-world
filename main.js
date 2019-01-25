@@ -1,3 +1,9 @@
+//initialization
+document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
+document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
+document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
+document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
+document.getElementById("ingot").innerHTML = gameData.ingot + " Gold Ingots"
 
 //game variables
 var gameData = {
@@ -9,7 +15,7 @@ var gameData = {
   drillCost: 100, //how much it costs to purchase another drill
   furnace: 0, //how many furnaces the player has
   furnaceCost: 1000, //how much it costs to purchase another furnace
-  autoMine: 1000 //autoMine is the time, in ms, that the player recieves gold.
+  autoMine: 1000 //autoMine is the time, in ms, that the player recieves ore.
 }
 
   document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into ingots button to be invisible before the player has 50 ore
@@ -24,11 +30,10 @@ function developerReset() { //developer reset button
     drillCost: 100, //how much it costs to purchase another drill
     furnace: 0, //how many furnaces the player has
     furnaceCost: 1000, //how much it costs to purchase another furnace
-    autoMine: 1000 //autoMine is the time, in ms, that the player recieves gold.
+    autoMine: 1000 //autoMine is the time, in ms, that the player recieves ore.
   }
-  
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-  document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
+  document.getElementById("ingot").innerHTML = gameData.ingot + " Gold Ingots"
   document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
   document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
 }
@@ -76,16 +81,16 @@ function buyFurnace() {
 function oreSmelt() {
   if(gameData.ore >= 10) {
     gameData.ore -= 10
-    gameData.gold += 10
+    gameData.ingot += 10
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-    document.getElementById("goldIngots").innerHTML = gameData.gold + " Gold Ingots"
+    document.getElementById("ingot").innerHTML = gameData.ingot + " Gold Ingots"
   }
 }
 
 //clock
 var mainGameLoop = window.setInterval(function() {
   mineOre()
-    if(gameData.gold >= 50) { // >= means greater than or equal to. == means equal to.
+    if(gameData.ingot >= 50) { // >= means greater than or equal to. == means equal to.
       document.getElementById("oreSmelt").style.display = "inline-block" //https://www.w3schools.com/cssref/pr_class_display.asp for more types of display, up to you
     }
 }, gameData.autoMine)
