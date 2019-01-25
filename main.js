@@ -59,6 +59,11 @@ function developerReset() { //developer reset button
   document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
 }
 
+//ore miner
+function mineOre() {
+  gameData.ore += gameData.orePerClick
+}
+
 //click upgrade
 function buyOrePerClick() {
   if (gameData.ore >= gameData.orePerClickCost) {
