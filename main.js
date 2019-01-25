@@ -10,10 +10,9 @@ var gameData = {
   drillEfficiency: 1, //how much a drill adds to the orePerSecond
   drillCost: 100, //how much it costs to purchase another drill
   furnace: 0, //how many furnaces the player has
-  furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
+  furnaceEfficiency: 50, //how much ore a smelt uses up
   furnaceCost: 1000, //how much it costs to purchase another furnace
   autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore.
-  furnaceEfficiency: 50, //how much ore a smelt uses up
   furnaceReward: 1, //how much ore a player receives per smelt
   //upgradeData
   upgradeCostMultiplier: 1.15, //determines the cost of the next upgrade
@@ -62,6 +61,7 @@ function developerReset() { //developer reset button
 //ore miner
 function mineOre() {
   gameData.ore += gameData.orePerClick
+  document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
 }
 
 //click upgrade
@@ -92,7 +92,7 @@ function buyFurnace() {
   if(gameData.ore >= gameData.furnaceCost) {
     gameData.ore -= gameData.furnaceCost
     gameData.furnace++
-    gameData.orePerSecond += gameData.furnaceEfficiency
+    gameData.ingotPerSecond += gameData.furnaceEfficiency
     gameData.furnaceCost *= gameData.upgradeCost
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
@@ -122,4 +122,4 @@ var mainGameLoop = window.setInterval(function() {
 //autosave
 var saveGameLoop = window.setInterval(function() {
   localStorage.setItem('oreMinerSave', JSON.stringify(gameData))
-}, 10000)
+}, 1000)
