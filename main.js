@@ -71,7 +71,7 @@ function buyOrePerClick() {
   if (gameData.ore >= gameData.orePerClickCost) {
     gameData.ore -= gameData.orePerClickCost
     gameData.orePerClick++
-    gameData.orePerClickCost = (int)(gameData.orePerClickCost * gameData.upgradeCostMultiplier).toFixed(0)
+    gameData.orePerClickCost = (gameData.orePerClickCost * gameData.upgradeCostMultiplier).toFixed(0)
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
   }
@@ -83,7 +83,7 @@ function buyDrill() {
     gameData.ore -= gameData.drillCost
     gameData.drill++
     gameData.orePerSecond += gameData.drillEfficiency
-    gameData.drillCost = (int)(gameData.drillCost * gameData.upgradeCostMultiplier).toFixed(0)
+    gameData.drillCost = (gameData.drillCost * gameData.upgradeCostMultiplier).toFixed(0)
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
   }
