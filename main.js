@@ -89,13 +89,14 @@ function buyDrill() {
   }
 }
 
+//HERERERERERER
 //furnace purchase
 function buyFurnace() {
   if(gameData.ore >= gameData.furnaceCost) {
     gameData.ore -= gameData.furnaceCost
     gameData.furnace++
     gameData.ingotPerSecond += gameData.furnaceEfficiency
-    gameData.furnaceCost = (int)(gameData.furnaceCost * gameData.upgradeCost)
+    gameData.furnaceCost *= gameData.upgradeCost
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
   }
