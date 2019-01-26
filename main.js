@@ -71,7 +71,7 @@ function buyOrePerClick() {
   if (gameData.ore >= gameData.orePerClickCost) {
     gameData.ore -= gameData.orePerClickCost
     gameData.orePerClick++
-    gameData.orePerClickCost = (gameData.orePerClickCost * gameData.upgradeCostMultiplier).toFixed(0)
+    gameData.orePerClickCost = calcCost(gameData.orePerClickCost)
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
   }
@@ -83,7 +83,7 @@ function buyDrill() {
     gameData.ore -= gameData.drillCost
     gameData.drill++
     gameData.orePerSecond += gameData.drillEfficiency
-    gameData.drillCost = (gameData.drillCost * gameData.upgradeCostMultiplier).toFixed(0)
+    gameData.drillCost = calcCost(gameData.drillCost)
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
   }
@@ -95,7 +95,7 @@ function buyFurnace() {
     gameData.ore -= gameData.furnaceCost
     gameData.furnace++
     gameData.ingotPerSecond += gameData.furnaceEfficiency
-    gameData.furnaceCost = (gameData.furnaceCost * gameData.upgradeCost).toFixed(0)
+    gameData.furnaceCost = calcCost(gameData.furnaceCost)
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently own " + gameData.furnace + ") Cost: " + gameData.furnaceCost + " Ore"
   }
@@ -110,6 +110,13 @@ function oreSmelt() {
     document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
     document.getElementById("oreSmelt").innerHTML = "Smelt" + gameData.furnaceEfficiency + " Ore into" + gameData.furnaceReward + " Gold Ingot"
   }
+}
+
+//calculate the cost of the next upgrade
+function calcCost(cost) {
+
+  return (cost * gameData.upgradeCostMultiplier * gameData.upgradeDiscount).toFixed(0)
+
 }
 
 //second clock
