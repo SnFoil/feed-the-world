@@ -15,7 +15,7 @@ var gameData = {
   autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore.
   furnaceReward: 1, //how much ore a player receives per smelt
   //upgradeData
-  upgradeCostMultiplier: 1.15, //determines the cost of the next upgrade
+  upgradeCostMultiplier: 1.85, //determines the cost of the next upgrade
   upgradeDiscount: 1 //overall discount applied to all upgrades. this can be upgraded as well to decrease the amount.
 }
 
