@@ -108,16 +108,16 @@ function oreSmelt() {
     gameData.ingot += gameData.furnaceReward
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
-    document.getElementById("oreSmelt").innerHTML = "Smelt " + gameData.furnaceEfficiency + " Ore into " + gameData.furnaceReward + " Gold Ingot"
+    document.getElementById("oreSmelt").innerHTML = "Smelt" + gameData.furnaceEfficiency + " Ore into" + gameData.furnaceReward + " Gold Ingot"
   }
 }
 
-//clock
+//second clock
 var mainGameLoop = window.setInterval(function() {
   gameData.ore += gameData.orePerSecond //add orePerSecond to ore
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
   if(gameData.ore >= 50) { //enable ore smelter
-      document.getElementById("oreSmelt").style.display = "inline-block" //https://www.w3schools.com/cssref/pr_class_display.asp for more types of display, up to you
+      document.getElementById("oreSmelt").style.display = "inline-block"
     }
 }, gameData.autoMine)
 
