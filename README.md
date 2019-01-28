@@ -1,6 +1,6 @@
 # incremental-game
 
-This is a game where you mine some ore. Then you do stuff with it.
+[This is where you can play the game.](https://snfoil.github.io/incremental-game/)
 
 # how to unlock new buttons / features
 
