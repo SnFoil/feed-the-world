@@ -101,6 +101,11 @@ function buyFurnace() {
   }
 }
 
+function enableOreSmelt() {
+  if(gameData.ore >= 50) { //enable ore smelter
+    document.getElementById("oreSmelt").style.display = "inline-block"
+}
+
 //smelt ores into ingots
 function oreSmelt() {
   if(gameData.ore >= gameData.furnaceEfficiency) {
@@ -114,17 +119,14 @@ function oreSmelt() {
 
 //calculate the cost of the next upgrade
 function calcCost(cost) {
-
   return (cost * gameData.upgradeCostMultiplier * gameData.upgradeDiscount).toFixed(0)
-
 }
 
 //second clock
 var mainGameLoop = window.setInterval(function() {
   gameData.ore += gameData.orePerSecond //add orePerSecond to ore
   document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
-  if(gameData.ore >= 50) { //enable ore smelter
-      document.getElementById("oreSmelt").style.display = "inline-block"
+  enableOreSmelt() //enable ore smelter
     }
 }, gameData.autoMine)
 
