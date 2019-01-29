@@ -33,6 +33,7 @@ document.getElementById("furnaceUpgrade").innerHTML = "Buy a furnace (Currently 
 document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
 document.getElementById("oreSmelt").style.display = "none" //sets smelt ore into ingots button to be invisible before the player has 50 ore
 
+//resets all variables
 function developerReset() { //developer reset button
   gameData = {
     ore: 0, //how much ore the player has
@@ -45,7 +46,6 @@ function developerReset() { //developer reset button
     drillEfficiency: 1, //how much a drill adds to the orePerSecond
     drillCost: 100, //how much it costs to purchase another drill
     furnace: 0, //how many furnaces the player has
-    furnaceEfficiency: 10, //how much a furnace adds to the orePerSecond
     furnaceCost: 1000, //how much it costs to purchase another furnace
     autoMine: 1000, //autoMine is the time, in ms, that the player recieves ore.
     furnaceEfficiency: 50, //how much ore a smelt uses up
@@ -80,10 +80,10 @@ function buyOrePerClick() {
 //drill purchase
 function buyDrill() {
   if (gameData.ore >= gameData.drillCost) {
-    gameData.ore -= gameData.drillCost
-    gameData.drill++
-    gameData.orePerSecond += gameData.drillEfficiency
-    gameData.drillCost = calcCost(gameData.drillCost)
+    gameData.ore -= gameData.drillCost //subtracts cost from current balance
+    gameData.drill++ //adds 1 drill
+    gameData.orePerSecond += gameData.drillEfficiency //adds oreEfficiency to player's ore per second
+    gameData.drillCost = calcCost(gameData.drillCost) //updates cost of next drill
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
   }
@@ -108,7 +108,7 @@ function oreSmelt() {
     gameData.ingot += gameData.furnaceReward
     document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
     document.getElementById("goldIngots").innerHTML = gameData.ingot + " Gold Ingots"
-    document.getElementById("oreSmelt").innerHTML = "Smelt" + gameData.furnaceEfficiency + " Ore into" + gameData.furnaceReward + " Gold Ingot"
+    document.getElementById("oreSmelt").innerHTML = "Smelt " + gameData.furnaceEfficiency + " Ore into " + gameData.furnaceReward + " Gold Ingot"
   }
 }
 
