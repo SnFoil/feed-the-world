@@ -127,11 +127,14 @@ function enableOreSmelt() {
     document.getElementById("oreSmelt").style.display = "inline-block"
 }
 
+function developerOre() {
+  gameData.ore += 16000
+  document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
+}
+
 //calculate the cost of the next upgrade
 function calcCost(cost) {
-
   return (cost * gameData.upgradeCostMultiplier * gameData.upgradeDiscount).toFixed(0)
-
 }
 
 //second clock
