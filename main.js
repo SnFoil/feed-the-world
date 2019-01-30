@@ -127,6 +127,7 @@ function smeltCooldownB() {
 function enableOreSmelt() {
   if(gameData.ore >= 50) { //enable ore smelter
     document.getElementById("oreSmelt").style.display = "inline-block"
+  }
 }
 
 function developerOre() {
