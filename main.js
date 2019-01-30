@@ -114,12 +114,14 @@ function oreSmelt() {
 
 //starts the cooldown of smelt
 function smeltCooldownA() {
-  document.getElementsByClassName("button-enabled").disabled = true;
+  document.getElementsByClassName("button-enabled").classList.add('button-disabled');
+  document.getElementsByClassName("button-disabled").classList.remove('button-enabled');
   window.setTimeout(smeltCooldownB,5000);
 }
 //removes the cooldown
 function smeltCooldownB() {
-  document.getElementsByClassName("button-enabled").disabled = false;
+  document.getElementsByClassName("button-enabled").classList.add('button-enabled');
+  document.getElementsByClassName("button-disabled").classList.remove('button-disabled');
 }
 
 function enableOreSmelt() {
