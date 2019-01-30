@@ -117,6 +117,17 @@ function oreSmelt() {
   }
 }
 
+//starts the cooldown of smelt
+function smeltCooldownA() {
+  document.getElementsByClassName("button-enabled").disabled = true;
+  window.setTimeout(smeltCooldownB,5000);
+}
+
+//removes the cooldown
+function smeltCooldownB() {
+  document.getElementsByClassName("button-enabled").disabled = false;
+}
+
 //calculate the cost of the next upgrade
 function calcCost(cost) {
   return (cost * gameData.upgradeCostMultiplier * gameData.upgradeDiscount).toFixed(0)
