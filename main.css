@@ -10,7 +10,7 @@
 }
 
 .button-disabled {
-  background-color: #808080; /* Light Grey */
+  background-color: #808080; /* Darker Grey */
   border: none;
   color: white;
   padding: 10px 10px;
