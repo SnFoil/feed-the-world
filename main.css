@@ -1,11 +1,32 @@
-.button {
-  background-color: #4CAF50; /* Green */
+.button-enabled {
+  background-color: #A9A9A9; /* Light Grey */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
 }
 
+.button-disabled {
+  background-color: #808080; /* Light Grey */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.developer-reset {
+  background-color: #FF6347; /* Light Red */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
