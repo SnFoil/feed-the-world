@@ -112,15 +112,9 @@ function oreSmelt() {
   }
 }
 
-//starts the cooldown of smelt
-function smeltCooldownA() {
+//sets the cooldown of buttons
+function cooldown() {
   document.getElementsByClassName("button-enabled").disabled = true;
-  window.setTimeout(smeltCooldownB,5000);
-}
-
-//removes the cooldown
-function smeltCooldownB() {
-  document.getElementsByClassName("button-enabled").disabled = false;
 }
 
 function enableOreSmelt() {
