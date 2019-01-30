@@ -116,7 +116,7 @@ function oreSmelt() {
 function smeltCooldownA() {
   document.getElementsByClassName("button-enabled").classList.add('button-disabled');
   document.getElementsByClassName("button-disabled").classList.remove('button-enabled');
-  window.setTimeout(smeltCooldownB,5000);
+  setTimeout(smeltCooldownB, 4000);
 }
 //removes the cooldown
 function smeltCooldownB() {
