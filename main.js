@@ -16,7 +16,7 @@ var gameData = {
   furnaceReward: 1, //how much ore a player receives per smelt
   //upgradeData
   upgradeCostMultiplier: 1.85, //determines the cost of the next upgrade
-  upgradeDiscount: 1 //overall discount applied to all upgrades. this can be upgraded as well to decrease the amount.
+  upgradeDiscount: 1, //overall discount applied to all upgrades. this can be upgraded as well to decrease the amount.
   lastTick: Date.now()
 }
 
@@ -26,7 +26,9 @@ if (savegame !== null) {
   gameData = savegame
 }
 
-//initialization
+//initializatio
+
+if (typeof saveGame.lastTick !== "undefined") gameData.lastTick = saveGame.lastTick;
 document.getElementById("oreMined").innerHTML = gameData.ore + " Gold Ore"
 document.getElementById("perClickUpgrade").innerHTML = "Upgrade Pickaxe (Currently Level " + gameData.orePerClick + ") Cost: " + gameData.orePerClickCost + " Ore"
 document.getElementById("drillUpgrade").innerHTML = "Buy a drill (Currently own " + gameData.drill + ") Cost: " + gameData.drillCost + " Ore"
