@@ -8,13 +8,28 @@
   <body>
     <h2 id="oreMined" class="goldore">0 Gold Ore</h2>
     <h2 id="goldIngots" class="goldingots">0 Gold Ingots</h2>
-    <button onclick="mineOre()" class="button-enabled">Mine Gold Ore</button>  <br>
-    <button onclick="buyOrePerClick()" id="perClickUpgrade" class="button-enabled">Upgrade Pickaxe (Currently Level 1) Cost: 10 Ore</button> <br>
-    <button onclick="buyDrill()" id="drillUpgrade" class="button-enabled">Buy a drill (Currently own 0) Cost: 100 Ore</button> <br>
-    <button onclick="buyFurnace()" id="furnaceUpgrade" class="button-enabled">Buy a Furnace (Currently own 0) Cost: 1000 Ore</button>  <br>
-    <button onclick="oreSmelt(); smeltCooldownA()" id="oreSmelt" class="button-enabled">Smelt 50 Ore into 1 Gold Ingot</button> <br><br><br>
-    <button onclick="developerReset()" class="developer-reset">RESET</button> <br>
-    <button onclick="developerOre()" class="developer-reset">GIVE 16k ORE</button> <br>
+
+    <div id="navigateButtons">
+      <button onclick="tab('mineOreMenu')">Go to the Mines</button>
+      <button onclick="tab('shopMenu')">Go to the Shop</button>
+      <button onclick="tab('devMenu')">Go to the Developer Menu</button>
+    </div>
+
+    <div id="mineOreMenu">
+      <button onclick="mineOre()" class="button-enabled">Mine Gold Ore</button> <br>
+      <button onclick="oreSmelt(); smeltCooldownA()" id="oreSmelt" class="button-enabled">Smelt 50 Ore into 1 Gold Ingot</button>
+    </div>
+
+    <div id="shopMenu">
+      <button onclick="buyOrePerClick()" id="perClickUpgrade" class="button-enabled">Upgrade Pickaxe (Currently Level 1) Cost: 10 Ore</button> <br>
+      <button onclick="buyDrill()" id="drillUpgrade" class="button-enabled">Buy a drill (Currently own 0) Cost: 100 Ore</button> <br>
+      <button onclick="buyFurnace()" id="furnaceUpgrade" class="button-enabled">Buy a Furnace (Currently own 0) Cost: 1000 Ore</button>  <br>
+    </div>
+
+    <div id="devMenu">
+      <button onclick="developerReset()" class="developer-reset">RESET</button> <br>
+      <button onclick="developerOre()" class="developer-reset">GIVE 16k ORE</button> <br>
+    </div>
     <script src="main.js" charset="utf-8" type="text/javascript"></script>
   </body>
 </html>

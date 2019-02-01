@@ -141,6 +141,17 @@ function calcCost(cost) {
   return (cost * gameData.upgradeCostMultiplier * gameData.upgradeDiscount).toFixed(0)
 }
 
+//hide all your tabs, then show the one the user selected
+function tab(tab) {
+  document.getElementById("mineOreMenu").style.display = "none"
+  document.getElementById("shopMenu").style.display = "none"
+  document.getElementById("devMenu").style.display = "none"
+  document.getElementById(tab).style.display = "inline-block"
+}
+
+// go to a tab for the first time, so not all show
+tab("mineOreMenu")
+
 //second clock
 var mainGameLoop = window.setInterval(function() {
   gameData.ore += gameData.orePerSecond //add orePerSecond to ore
