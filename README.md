@@ -1,6 +1,6 @@
 # incremental-game
 
-[This is where you can play the game.](https://snfoil.github.io/incremental-game/)
+[Play the game here.](https://snfoil.github.io/incremental-game/)
 
 # how to unlock new buttons / features
 
